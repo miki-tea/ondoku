@@ -49,7 +49,7 @@
               </div>
               @empty
               <div class="border-top">
-                <p>コメントはまだありません。</p>
+                <p class="my-1 p-1">コメントはまだありません。</p>
               </div>
               @endforelse
             </div>

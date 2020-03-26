@@ -24,4 +24,25 @@ class AgendaController extends Controller
             'agendas' => $agendas,
         ]);
     }
+
+    public function store(Request $request, int $id) {
+        
+        $post = new Agenda();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = 1; //TODO:ログイン認証ONにしたらAuth::id()に変更
+        $post->group_id = $id;
+        $post->save();
+        
+        //選択中のグループの情報を取得する
+        $selected_group = Group::find($id);
+
+        //選択されたグループの全ての議題を取得する
+        $agendas = Agenda::where('group_id', $selected_group->id)->get();
+
+        return view('groups/show', [
+            'group' => $selected_group,
+            'agendas' => $agendas,
+            ]);
+    }
 }

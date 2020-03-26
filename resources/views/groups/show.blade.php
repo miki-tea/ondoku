@@ -32,7 +32,7 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col">
-          <nav class="card mb-4">
+          <div class="card mb-4">
             <div class="card-header">
               <span>読書会<span><h1 class="ml-2 mb-0 h3">{{ $group->name }}</h1>
             </div>
@@ -44,17 +44,35 @@
               <small class="text-muted float-right mb-0">
               作成日：{{ $group->created_at->format("Y年m月d日") }}
               </small>
-              <small class="text-muted float-right mb-0 mr-3">
-              最終更新日：{{ $group->updated_at->format("Y年m月d日") }}
-              </small>
             </li>
             </ul>
 
-          </nav>
-          <nav class="card">
+          </div>
+          <div class="card overflow-hidden mb-4">
+            <div class="card-header">
+              新規議題作成
+            </div>
+          <form action="" method="POST" class="p-4">
+              @csrf
+              <div class="form-froup">
+                <label for="title" class="my-1">タイトル</label>
+                <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <div class="form-froup">
+                <label for="body" class="my-1">返信</label>
+                <textarea name="body" id="body" cols="30" rows="5" class="form-control"></textarea>
+              </div>
+              <div>
+                <input type="submit" class="btn btn-outline-secondary py-0 mt-2 float-right d-block">
+              </div>
+            </form>
+          </div>
+          <nav class="card mb-4">
             <div class="card-header">
               議題 一覧
             </div>
+            <div class="border-top my-0">
+          </div>
             <ul class="list-group list-group-flush">
               @foreach($agendas as $agenda)
             <li class="list-group-item">
