@@ -31,34 +31,38 @@
   <main>
     <div class="co-md-12 my-4">
       <div class="col-md-8 mx-auto">
-        <div class="border rounded p-4">
+        <div class="border rounded p-4 overflow-hidden">
           <div class="mb-4">
             <h1 class="h5 mb-4">{{ $agenda->title}}</h1>
             <p>{{ $agenda->body}}</p>
             <div class="text-right">
-              <small>作成日：{{ $agenda->updated_at->format('Y年m月d日')}}</small>
+              <small>投稿日：{{ $agenda->updated_at->format('Y年m月d日')}}</small>
             </div>
           </div>
-          @forelse($post->comments as $comment)
-            <div class="border-top p-4">
-                <time class="text-secondary">
-                    {{ $comment->created_at->format('Y.m.d H:i') }}
-                </time>
-                <p class="mt-2">
-                    {!! nl2br(e($comment->body)) !!}
-                </p>
+          <div>
+            @forelse($agenda->comments as $comment)
+              <div class="border-top">
+                <p class="my-1 p-1">{{ $comment->body }}</p>
+                <div class="text-right">
+                  <small class="text-muted">投稿日：{{ $comment->created_at->format('Y年m月d日') }}</small>
+                </div>
+              </div>
+              @empty
+              <div class="border-top">
+                <p>コメントはまだありません。</p>
+              </div>
+              @endforelse
             </div>
-          @empty
-            <p>コメントはまだありません。</p>
-          @endforelse
 
-          <div class="container border-top my-4">
+          <div class="border-top my-0">
             <form action="">
               <div class="form-froup">
                 <label for="body" class="my-1">返信</label>
                 <textarea name="" id="body" cols="30" rows="5" class="form-control"></textarea>
               </div>
-              <input type="submit" class="btn btn-outline-secondary py-0 mt-2 float-right">
+              <div>
+                <input type="submit" class="btn btn-outline-secondary py-0 mt-2 float-right d-block">
+              </div>
             </form>
           </div>
         </div>

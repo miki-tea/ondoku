@@ -19,6 +19,11 @@ Route::get('/', function () {
 
 // Auth::routes();
 
+//グループ一覧表示
 Route::get('/groups/{id}', 'GroupController@index')->name('groups.index');
+
+// グループ個別ページ表示
 Route::get('/groups/show/{id}', 'GroupController@show')->name('group.show');
+
+// 議題個別ページ表示
 Route::get('/groups/agenda/{id}', 'AgendaController@index')->name('agenda.index');
