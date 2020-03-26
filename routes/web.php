@@ -29,3 +29,4 @@ Route::get('/groups/show/{id}', 'GroupController@show')->name('group.show');
 
 // 議題個別ページ表示
 Route::get('/groups/agenda/{id}', 'AgendaController@index')->name('agenda.index');
+Route::post('/groups/agenda/{id}', 'CommentsController@store');

@@ -53,15 +53,16 @@
               </div>
               @endforelse
             </div>
-
+          {{-- フォーム部品 --}}
           <div class="border-top my-0">
-            <form action="">
+            <form action="" method="POST">
+              @csrf
               <div class="form-froup">
                 <label for="body" class="my-1">返信</label>
-                <textarea name="" id="body" cols="30" rows="5" class="form-control"></textarea>
+                <textarea name="body" id="body" cols="30" rows="5" class="form-control"></textarea>
               </div>
               <div>
-                <input type="submit" class="btn btn-outline-secondary py-0 mt-2 float-right d-block">
+                <input type="submit" name="submit" class="btn btn-outline-secondary py-0 mt-2 float-right d-block">
               </div>
             </form>
           </div>

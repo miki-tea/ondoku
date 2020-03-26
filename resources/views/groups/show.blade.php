@@ -77,6 +77,7 @@
               @foreach($agendas as $agenda)
             <li class="list-group-item">
                   <a href="{{ route('agenda.index', ['id' => $agenda->id]) }}" class="">{{ $agenda->title }}</a>
+            <small class="float-right text-muted">{{ $agenda->created_at->format('Y年m月d日')}}</small>
                 </li>
               @endforeach
             </ul>
