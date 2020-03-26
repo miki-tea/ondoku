@@ -20,4 +20,5 @@ Route::get('/', function () {
 // Auth::routes();
 
 Route::get('/groups/{id}', 'GroupController@index')->name('groups.index');
-Route::get('/agendas/{id}', 'AgendaController@index')->name('agendas.index');
+Route::get('/groups/show/{id}', 'GroupController@show')->name('group.show');
+Route::get('/groups/agenda/{id}', 'AgendaController@index')->name('agenda.index');

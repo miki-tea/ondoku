@@ -25,4 +25,17 @@ class GroupController extends Controller
             'selected_group_id' => $id,
         ]);
     }
+
+        public function show(int $id) {
+        //選択中のグループの情報を取得する
+        $selected_group = Group::find($id);
+
+        //選択されたグループの全ての議題を取得する
+        $agendas = Agenda::where('group_id', $selected_group->id)->get();
+
+        return view('groups/show', [
+            'group' => $selected_group,
+            'agendas' => $agendas,
+            ]);
+    }
 }

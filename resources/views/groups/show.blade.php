@@ -13,12 +13,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">ONDOKU</a>
-    <div class="col-3 input-group">
-	<input type="text" class="form-control" placeholder="読書会を検索">
-	<span class="input-group-append">
-		<button type="button" class="btn btn-info"><i class="fas fa-search text-white"></i></button>
-	</span>
-</div>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -39,20 +34,19 @@
         <div class="col">
           <nav class="card mb-4">
             <div class="card-header">
-              読書会
+              <span>読書会<span><h1 class="ml-2 mb-0 h3">{{ $group->name }}</h1>
             </div>
             <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              グループ名：{{ $group->name }}
-            </li>
-            <li class="list-group-item">
-              グループ概要：{{ $group->description }}
-            </li>
-            <li class="list-group-item">
+              <p>
+                {{ $group->description }}
+              </p>
+              <small class="text-muted float-right mb-0">
               作成日：{{ $group->created_at->format("Y年m月d日") }}
-            </li>
-            <li class="list-group-item">
+              </small>
+              <small class="text-muted float-right mb-0 mr-3">
               最終更新日：{{ $group->updated_at->format("Y年m月d日") }}
+              </small>
             </li>
             </ul>
 
@@ -64,7 +58,7 @@
             <ul class="list-group list-group-flush">
               @foreach($agendas as $agenda)
             <li class="list-group-item">
-                  <a href="{{ route('agendas.index', ['id' => $agenda->id]) }}" class="">{{ $agenda->title }}</a>
+                  <a href="{{ route('agenda.index', ['id' => $agenda->id]) }}" class="">{{ $agenda->title }}</a>
                 </li>
               @endforeach
             </ul>

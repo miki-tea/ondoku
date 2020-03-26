@@ -16,8 +16,10 @@ class AgendaController extends Controller
         //選択されたグループの全ての議題を取得する
         $agendas = Agenda::where('group_id', $selected_group->id)->get();
 
-        return view('agendas/index', [
-            'group' => $selected_group,
+        $selected_agenda = Agenda::find($id);
+
+        return view('groups/agenda', [
+            'agenda' => $selected_agenda,
             'agendas' => $agendas,
             ]);
     }
