@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 // Auth::routes();
 
@@ -24,8 +24,10 @@ Route::get('/', function () {
 Route::get('/groups/new', 'GroupController@new')->name('group.new');
 //グループを新規作成
 Route::post('/groups/new', 'GroupController@store');
-//グループ一覧表示
+//グループ一覧を表示する
 Route::get('/groups', 'GroupController@index')->name('groups.index');
+//グループ検索結果を表示する
+Route::get('/groups/search', 'GroupController@search')->name('groups.search');
 
 // グループ個別ページから議題新規作成
 Route::post('/groups/show/{id}', 'AgendaController@store');

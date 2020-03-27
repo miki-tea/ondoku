@@ -35,17 +35,19 @@
     <h1 class="h3 font-weight-bold my-4 text-info">読書会</h1>
 
         <div class="row d-flex align-items-center">
-          <div class="col-md-8">
-            <div class="input-group m-0 mx-auto">
-              <input type="text" class="form-control" placeholder="読書会を検索">
-              <span class="input-group-append">
-                <button type="button" class="btn btn-info"><i class="fas fa-search text-white"></i></button>
-              </span>
-            </div>
+          <div class="col-lg-8">
+              <form action="{{ url('/groups/search')}}" method="post"class="input-group m-0 mx-auto">
+                @csrf
+                {{method_field('get')}}
+                <input name="name" type="text" class="form-control rounded" placeholder="読書会を検索">
+                <span class="input-group-append">
+                  <button type="submit" class="btn btn-info"><i class="fas fa-search text-white"></i></button>
+                </span>
+              </form>
           </div>
-          <div class="col-md-4 mt-2 mt-md-0">
-            <button class="btn btn-outline-info container py-2 m-0">
-              <a href="{{ route('group.new')}}" class="d-block"><span>新しい読書会を作る</span></a>
+          <div class="col-lg-4 mt-2 mt-lg-0">
+            <button class="w-100 btn btn-outline-info py-2">
+              <a href="{{ route('group.new')}}" class="d-block text-info">&#043;&nbsp;New&nbsp;読書会</a>
             </button> 
           </div>
         </div>
