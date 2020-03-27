@@ -22,7 +22,7 @@
           </ul>
         </div>
         <button class="btn btn-info container py-2 my-2">
-          <a href="{{ route('group.new')}}" class="text-white d-block">新しい読書会を作る</a>
+          <a href="{{ route('groups.new')}}" class="text-white d-block">新しい読書会を作る</a>
         </button>
       </div>
     </main>
