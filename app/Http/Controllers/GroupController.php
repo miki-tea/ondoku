@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class GroupController extends Controller
 {
     //読書会一覧ページを表示
-    public function index(int $id) {
+    public function index() {
 
         //読書会グループの全ての情報を取得する
         $groups = Group::all();
@@ -41,13 +41,15 @@ class GroupController extends Controller
         return view('groups/new');
     }
     //グループの新規作成処理を行う
-    public function store(Request $request,int $id) {
+    public function store(Request $request) {
         // post送信の内容をDBに保存
         $post = new Group();
         $post->name = $request->name;
         $post->description = $request->description;
         $post->user_id = 1; //TODO:ログイン実装時に変更
-        // 表示するコンテンツを取得・表示
-        $this->index($id);
+        $post->save();
+        
+        //読書会一覧ページに戻る。
+        return  redirect ('/groups');
     }
 }

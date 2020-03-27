@@ -25,7 +25,7 @@ Route::get('/groups/new', 'GroupController@new')->name('group.new');
 //グループを新規作成
 Route::post('/groups/new', 'GroupController@store');
 //グループ一覧表示
-Route::get('/groups/{id}', 'GroupController@index')->name('groups.index');
+Route::get('/groups', 'GroupController@index')->name('groups.index');
 
 // グループ個別ページから議題新規作成
 Route::post('/groups/show/{id}', 'AgendaController@store');
