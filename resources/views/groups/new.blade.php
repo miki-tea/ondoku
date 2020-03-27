@@ -1,4 +1,4 @@
-@extends('layouts.mypage')
+@extends('layouts.template')
 
 @section('title','新規読書会作成')
 @section('content')
