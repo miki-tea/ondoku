@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Group;
 use App\Agenda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
 {
@@ -12,7 +13,9 @@ class GroupController extends Controller
     public function index() {
 
         //読書会グループの全ての情報を取得する
-        $groups = Group::all();
+        // $groups = Group::all();
+        $groups = DB::table('groups')->paginate(2);
+
 
         //　前読書会グループの情報をビューに渡して返す
         return view('groups/index', [
