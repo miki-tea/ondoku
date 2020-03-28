@@ -1,37 +1,12 @@
-{{-- @extends('layouts.myapp')
-@section('title','ページタイトル')
-@section('content')
-<main>
-  
-      <div class="container col-md-6 my-4">
-        <h1>読書会一覧</h1>
-
-
-          <div class="card">
-
-            <ul class="list-group list-group-flush">
-              @foreach($groups as $group)
-              <li class="list-group-item">
-                  <a href="{{ route('group.show', ['id' => $group->id]) }}">{{ $group->name }}</a>
-              </li>
-              @endforeach
-            </ul>
-          </div>
-
-        <div class="d-flex justify-content-center p-2">
-          {{ $groups->links() }}
-        </div>
-        
-
-      </div>
-    </main>
-
-@endsection --}}
-
 @extends('layouts.app')
 @section('title','読書会一覧')
 @section('content')
-  <div class="col-md-7 mx-auto">
+<nav aria-label="パンくずリスト" class="">
+  <ol class="breadcrumb py-1 rounded-0">
+    <li class="breadcrumb-item active" aria-current="page">読書会一覧</li>
+  </ol>
+</nav>
+  <div class="col-md-9 mx-auto my-4">
     <h1 class="h3 font-weight-bold my-4 text-info">読書会</h1>
 
         <div class="row d-flex align-items-center">
@@ -39,7 +14,7 @@
               <form action="{{ url('/groups/search')}}" method="post"class="input-group m-0 mx-auto">
                 @csrf
                 {{method_field('get')}}
-                <input name="name" type="text" class="form-control rounded" placeholder="読書会を検索">
+                <input name="name" type="text" class="form-control rounded-left" placeholder="読書会を検索">
                 <span class="input-group-append">
                   <button type="submit" class="btn btn-info"><i class="fas fa-search text-white"></i></button>
                 </span>
@@ -47,7 +22,7 @@
           </div>
           <div class="col-lg-4 mt-2 mt-lg-0">
             <button class="w-100 btn btn-outline-info py-2">
-              <a href="{{ route('group.new')}}" class="d-block text-info">&#043;&nbsp;New&nbsp;読書会</a>
+              <a href="{{ route('group.new')}}" class="d-block text-info" id="btn-new">&#043;&nbsp;New&nbsp;読書会</a>
             </button> 
           </div>
         </div>

@@ -12,4 +12,7 @@ class Agenda extends Model
     public function comments(){
         return $this->hasMany('App\Comment');
     }
+    public function group() {
+        return $this->belongsTo('App\Group');
+    }
 }

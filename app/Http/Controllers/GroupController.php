@@ -6,6 +6,7 @@ use App\Group;
 use App\Agenda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller
 {
@@ -14,7 +15,7 @@ class GroupController extends Controller
 
         //読書会グループの全ての情報を取得する
         // $groups = Group::all();
-        $groups = DB::table('groups')->paginate(5);
+        $groups = DB::table('groups')->paginate(10);
 
 
         //　前読書会グループの情報をビューに渡して返す
@@ -30,7 +31,7 @@ class GroupController extends Controller
         $selected_group = Group::find($id);
 
         //選択されたグループの全ての議題を取得する
-        $agendas = Agenda::where('group_id', $selected_group->id)->paginate(3);
+        $agendas = Agenda::where('group_id', $selected_group->id)->paginate(10);
         
         //取得した情報を連想配列につめてビューを返す
         return view('groups/show', [
@@ -53,7 +54,7 @@ class GroupController extends Controller
         $group = new Group();
         $group->name=$request->g_name;
         $group->description=$request->description;
-        $group->user_id=1; //TODO:ログイン実装時に変更
+        $group->user_id= Auth::id();
         $group->save();
         
         //読書会一覧ページに戻る。

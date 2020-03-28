@@ -1,11 +1,16 @@
 
-@extends('layouts.myapp')
+@extends('layouts.app')
 
 @section('title','新規読書会作成')
 @section('content')
+<nav aria-label="パンくずリスト">
+  <ol class="breadcrumb py-1 rounded-0">
+    <li class="breadcrumb-item"><a href="{{ url('/') }}">読書会一覧</a></li>
+    <li class="breadcrumb-item active" aria-current="page">読書会「{{ $group->name }}」</li>
+  </ol>
+</nav>
   <div class="container mt-4">
-    <div class="row">
-      <div class="col">
+      <div class="col-md-9 mx-auto">
         <div class="card mb-4 bg-info">
           <div class="card-header">
             <span class="text-white">読書会<span><h1 class="text-white ml-2 mb-0 h3">{{ $group->name }}</h1>
@@ -65,8 +70,7 @@
           </form>
 
         </div>
-        <a href="{{ route('home') }}" class="d-block mt-2">Back</a>
+        <a href="{{ url('/') }}" class="d-block mt-2">Back</a>
       </div>
-    </div>
   </div>
 @endsection

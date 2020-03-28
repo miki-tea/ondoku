@@ -8,4 +8,8 @@ class Group extends Model
 {
     //
     protected $fillable = ['name'];
+
+    public function agendas(){
+        return $this->hasMany('App\Agenda');
+    }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.myapp')
+@extends('layouts.app')
 @section('title','検索結果')
 @section('content')
   <div class="col-md-7 mx-auto">
@@ -19,7 +19,7 @@
         @endif
       </ul>
     </div>
-    <a href="{{ url('/groups') }}" class="d-block mt-2">Back</a>
+    <a href="{{ url('/') }}" class="d-block mt-2">Back</a>
     <div class="d-flex justify-content-center align-items-center p-2">
       {{ $groups->appends(request()->input())->links() }}
     </div>

@@ -1,9 +1,15 @@
-@extends('layouts.myapp')
+@extends('layouts.app')
 
 @section('title','新規読書会作成')
 @section('content')
+<nav aria-label="パンくずリスト">
+  <ol class="breadcrumb py-1 rounded-0">
+    <li class="breadcrumb-item"><a href="{{ url('/') }}">読書会一覧</a></li>
+    <li class="breadcrumb-item active" aria-current="page">新規作成</li>
+  </ol>
+</nav>
   {{-- ↓↓↓↓フォーム部品↓↓↓↓ --}}
-  <div class="col-sm-9 border mx-auto my-4 overflow-hidden rounded p-4">
+  <div class="col-md-9 mx-auto border my-4 overflow-hidden rounded p-4">
     <h1 class="h3 text-center text-info mb-2 font-weight-bold">読書会新規作成</h1>
     <form action="" method="POST">
       @csrf
@@ -20,6 +26,6 @@
   </div>
   {{-- ↑↑↑↑フォーム部品↑↑↑↑ --}}
   <div class="col-sm-9 mx-auto my-4 p-0">
-    <a href="{{ url('/groups') }}" class="mt-2">Back</a>
+    <a href="{{ url('/') }}" class="mt-2">Back</a>
   </div>
 @endsection

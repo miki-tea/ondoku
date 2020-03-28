@@ -1,6 +1,7 @@
-@extends('layouts.myapp')
+@extends('layouts.app')
 @section('title','読書会一覧')
 @section('content')
+
   <div class="container">
     <h1 class="h3 font-weight-bold mt-4 text-info">読書会</h1>
         <div class="input-group my-3 mx-auto">

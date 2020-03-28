@@ -1,10 +1,16 @@
 
-@extends('layouts.myapp')
+@extends('layouts.app')
 
 @section('title','新規読書会作成')
 @section('content')
-    <div class="co-md-12 my-4">
-      <div class="col-md-8 mx-auto">
+<nav aria-label="パンくずリスト">
+  <ol class="breadcrumb py-1 rounded-0">
+    <li class="breadcrumb-item"><a href="{{ url('/') }}">読書会一覧</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('group.show',[ 'id' => $agenda->group_id]) }}">読書会「{{ $group }}」</a></li>
+  <li class="breadcrumb-item active" aria-current="page">議題[{{ $agenda->title}}]</li>
+  </ol>
+</nav>
+      <div class="col-md-9 mx-auto my-4">
         <div class="border border-info rounded p-4 overflow-hidden">
           <div class="mb-2">
             <p class="mb-1 text-info">議題</p>
@@ -25,7 +31,7 @@
                 </div>
               </div>
               @empty
-              <div class="border-top">
+              <div class="border-top border-info">
                 <p class="my-1 p-1">コメントはまだありません。</p>
               </div>
               @endforelse
@@ -45,7 +51,6 @@
           </div>
           {{-- ↑↑↑↑フォーム部品↑↑↑↑ --}}
         </div>
-        <a href="{{ url()->previous() }}" class="d-block mt-2">Back</a>
+        <a href="{{ route('group.show',[ 'id' => $agenda->group_id]) }}" class="d-block mt-2">Back</a>
       </div>
-    </div>
 @endsection

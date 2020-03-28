@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Agenda;
 use App\Comment;
 
@@ -15,7 +16,7 @@ class CommentsController extends Controller
         ]);
 
         $post = new Comment();
-        $post->user_id = 1; //TODO:ログイン認証ONにしたらAuth::id()に変更
+        $post->user_id = Auth::id();
         $post->agenda_id = $id;
         $post->body = $request->body;
         $post->save();
