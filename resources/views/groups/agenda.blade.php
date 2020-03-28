@@ -36,7 +36,7 @@
               @csrf
               <div class="form-froup">
               <label for="body" class="my-1">返信</label><small class="text-danger ml-2">{{$errors->first('body')}}</small>
-                <textarea name="body" id="body" cols="30" rows="5" class="form-control"></textarea>
+                <textarea name="body" id="body" cols="30" rows="5" class="form-control">{{ old('body') }}</textarea>
               </div>
               <div>
                 <input type="submit" name="submit" class="btn btn-outline-info py-0 mt-4 float-right d-block">

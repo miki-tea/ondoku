@@ -53,11 +53,11 @@
             @csrf
             <div class="form-froup">
             <label for="title" class="my-1">議題<small class="text-danger pl-2">{{ $errors->first('title')}}</small></label>
-              <input type="text" class="form-control" id="title" name="title">
+            <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}">
             </div>
             <div class="form-froup">
               <label for="body" class="my-1">本文<small class="text-danger pl-2">{{ $errors->first('body')}}</small></label>
-              <textarea name="body" id="body" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="body" id="body" cols="30" rows="5" class="form-control"> {{ old('body')}}</textarea>
             </div>
             <div>
               <input type="submit" class="btn btn-outline-info py-0 mt-2 float-right d-block" value="作成">
