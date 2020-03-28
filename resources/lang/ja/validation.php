@@ -26,6 +26,9 @@ return [
         'name'        => '名前',
         'description' => '概要',
         'body' => '本文',
+        'email' => 'Eメール',
+        'password' => 'パスワード',
+        'token' => 'トークン',
     ],
 
 ];
