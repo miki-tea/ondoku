@@ -12,19 +12,27 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand text-info" href="#">ONDOKU<p style="font-size:10px;" class="my-0">-オンライン読書会-</p></a>
-    
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="/group">HOME</a>
-      <a class="nav-item nav-link" href="#">LOGOUT</a>
-    </div>
-  </div>
+      <a class="navbar-brand text-info" href="#">ONDOKU<p style="font-size:10px;" class="my-0">-オンライン読書会-</p></a>
+        
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          @if(Auth::check())
+            <a class="nav-item nav-link" href="/group">HOME</a>
+            <a class="nav-item nav-link" href="#">LOGOUT</a>
+            <form id="logout-form" action="{{ route('logout')}}" method="POST" style="display: none;">
+              @csrf
+            </form>
+          @else
+            <a href="nav-item nav-link" href="{{ route('login') }}">ログイン</a>
+            <a href="nav-item nav-link" href="{{ route('register') }}">会員登録</a>
+          @endif
+        </div>
+      </div>
 
-</nav>
+    </nav>
   </header>
   <main>
     @yield('content')

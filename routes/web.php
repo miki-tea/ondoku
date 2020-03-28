@@ -17,23 +17,23 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-// Auth::routes();
+Route::group(['middleware' => 'auth'],function(){
+  //グループを新規作成ページを表示
+  Route::get('/groups/new', 'GroupController@new')->name('group.new');
+  //グループを新規作成
+  Route::post('/groups/new', 'GroupController@store');
+  //グループ一覧を表示する
+  Route::get('/', 'GroupController@index')->name('home');
+  //グループ検索結果を表示する
+  Route::get('/groups/search', 'GroupController@search')->name('groups.search');
 
+  // グループ個別ページから議題新規作成
+  Route::post('/groups/{id}/show', 'AgendaController@store');
+  // グループ個別ページ表示
+  Route::get('/groups/{id}/show', 'GroupController@show')->name('group.show');
 
-//グループを新規作成ページを表示
-Route::get('/groups/new', 'GroupController@new')->name('group.new');
-//グループを新規作成
-Route::post('/groups/new', 'GroupController@store');
-//グループ一覧を表示する
-Route::get('/groups', 'GroupController@index')->name('groups.index');
-//グループ検索結果を表示する
-Route::get('/groups/search', 'GroupController@search')->name('groups.search');
-
-// グループ個別ページから議題新規作成
-Route::post('/groups/{id}/show', 'AgendaController@store');
-// グループ個別ページ表示
-Route::get('/groups/{id}/show', 'GroupController@show')->name('group.show');
-
-// 議題個別ページ表示
-Route::get('/groups/agenda/{id}/show', 'AgendaController@show')->name('agenda.index');
-Route::post('/groups/agenda/{id}/show', 'CommentsController@store');
+  // 議題個別ページ表示
+  Route::get('/groups/agenda/{id}/show', 'AgendaController@show')->name('agenda.index');
+  Route::post('/groups/agenda/{id}/show', 'CommentsController@store');
+});
+Auth::routes();

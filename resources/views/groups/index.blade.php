@@ -28,7 +28,7 @@
 
 @endsection --}}
 
-@extends('layouts.myapp')
+@extends('layouts.app')
 @section('title','読書会一覧')
 @section('content')
   <div class="col-md-7 mx-auto">

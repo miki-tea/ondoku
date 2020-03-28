@@ -65,7 +65,7 @@
           </form>
 
         </div>
-        <a href="{{ route('groups.index') }}" class="d-block mt-2">Back</a>
+        <a href="{{ route('home') }}" class="d-block mt-2">Back</a>
       </div>
     </div>
   </div>
