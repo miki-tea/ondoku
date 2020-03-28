@@ -19,9 +19,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="/mypage">Home</a>
-      <a class="nav-item nav-link" href="#">Profile</a>
-      <a class="nav-item nav-link" href="#">logout</a>
+      <a class="nav-item nav-link" href="/group">HOME</a>
+      <a class="nav-item nav-link" href="#">LOGOUT</a>
     </div>
   </div>
 

@@ -30,7 +30,7 @@ class GroupController extends Controller
         $selected_group = Group::find($id);
 
         //選択されたグループの全ての議題を取得する
-        $agendas = Agenda::where('group_id', $selected_group->id)->get();
+        $agendas = Agenda::where('group_id', $selected_group->id)->paginate(3);
         
         //取得した情報を連想配列につめてビューを返す
         return view('groups/show', [
@@ -50,11 +50,11 @@ class GroupController extends Controller
             'description' => 'required|max:5000',
         ]);
         // post送信の内容をDBに保存
-        $post = new Group();
-        $post->name = $request->g_name;
-        $post->description = $request->description;
-        $post->user_id = 1; //TODO:ログイン実装時に変更
-        $post->save();
+        $group = new Group();
+        $group->name=$request->g_name;
+        $group->description=$request->description;
+        $group->user_id=1; //TODO:ログイン実装時に変更
+        $group->save();
         
         //読書会一覧ページに戻る。
         return  redirect ('/groups');

@@ -35,5 +35,5 @@ Route::post('/groups/{id}/show', 'AgendaController@store');
 Route::get('/groups/{id}/show', 'GroupController@show')->name('group.show');
 
 // 議題個別ページ表示
-Route::get('/groups/agenda/{id}/show', 'AgendaController@index')->name('agenda.index');
+Route::get('/groups/agenda/{id}/show', 'AgendaController@show')->name('agenda.index');
 Route::post('/groups/agenda/{id}/show', 'CommentsController@store');

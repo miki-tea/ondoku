@@ -10,7 +10,10 @@ class CommentsController extends Controller
 {
     //
     public function store(Request $request, int $id) {
-        
+        $validatedData = $request->validate([
+            'body' => 'required|max:5000',
+        ]);
+
         $post = new Comment();
         $post->user_id = 1; //TODO:ログイン認証ONにしたらAuth::id()に変更
         $post->agenda_id = $id;

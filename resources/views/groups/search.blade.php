@@ -19,7 +19,7 @@
         @endif
       </ul>
     </div>
-    <a href="{{ url('/groups') }}" class="mt-2 float-right">Back</a>
+    <a href="{{ url('/groups') }}" class="d-block mt-2">Back</a>
     <div class="d-flex justify-content-center align-items-center p-2">
       {{ $groups->appends(request()->input())->links() }}
     </div>
