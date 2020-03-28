@@ -4,13 +4,13 @@
 @section('content')
   {{-- ↓↓↓↓フォーム部品↓↓↓↓ --}}
   <div class="col-sm-9 border mx-auto my-4 overflow-hidden rounded p-4">
-    <h1 class="h3 text-center text-info mb-2">読書会新規作成</h1>
+    <h1 class="h3 text-center text-info mb-2 font-weight-bold">読書会新規作成</h1>
     <form action="" method="POST">
       @csrf
       <div class="form-group m-0">
-        <label for="name" class="my-1">グループ名</label>
-        <input name="name" id="name" cols="30" rows="5" class="form-control"></textarea>
-        <label for="description" class="my-1">概要</label>
+        <label for="g_name" class="my-1">会の名前<small class="text-danger">{{ $errors->first('g_name') }}</small></label>
+        <input name="g_name" id="g_name" cols="30" rows="5" class="form-control"></textarea>
+        <label for="description" class="my-1">概要<small class="text-muted">（会を作った経緯・やりたいこと・発言ルール・運営方針など）</small><small class="text-danger">{{ $errors->first('description') }}</small></label>
         <textarea name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
       </div>
       <div>
@@ -19,4 +19,7 @@
     </form>
   </div>
   {{-- ↑↑↑↑フォーム部品↑↑↑↑ --}}
+  <div class="col-sm-9 mx-auto my-4 p-0">
+    <a href="{{ url('/groups') }}" class="mt-2">Back</a>
+  </div>
 @endsection

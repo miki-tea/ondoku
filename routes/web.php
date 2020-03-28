@@ -30,10 +30,10 @@ Route::get('/groups', 'GroupController@index')->name('groups.index');
 Route::get('/groups/search', 'GroupController@search')->name('groups.search');
 
 // グループ個別ページから議題新規作成
-Route::post('/groups/show/{id}', 'AgendaController@store');
+Route::post('/groups/{id}/show', 'AgendaController@store');
 // グループ個別ページ表示
-Route::get('/groups/show/{id}', 'GroupController@show')->name('group.show');
+Route::get('/groups/{id}/show', 'GroupController@show')->name('group.show');
 
 // 議題個別ページ表示
-Route::get('/groups/agenda/{id}', 'AgendaController@index')->name('agenda.index');
-Route::post('/groups/agenda/{id}', 'CommentsController@store');
+Route::get('/groups/agenda/{id}/show', 'AgendaController@index')->name('agenda.index');
+Route::post('/groups/agenda/{id}/show', 'CommentsController@store');

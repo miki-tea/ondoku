@@ -45,9 +45,13 @@ class GroupController extends Controller
     }
     //グループの新規作成処理を行う
     public function store(Request $request) {
+        $validatedData = $request->validate([
+            'g_name' => 'required|unique:groups,name|max:100',
+            'description' => 'required|max:5000',
+        ]);
         // post送信の内容をDBに保存
         $post = new Group();
-        $post->name = $request->name;
+        $post->name = $request->g_name;
         $post->description = $request->description;
         $post->user_id = 1; //TODO:ログイン実装時に変更
         $post->save();
