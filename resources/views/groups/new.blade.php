@@ -20,7 +20,7 @@
       <textarea name="description" id="description" cols="30" rows="5" class="form-control">{{ old('description') }}</textarea>
       </div>
       <div>
-        <input type="submit" name="submit" class="btn btn-outline-info py-0 mt-2 float-right d-block" value="送信">
+        <input type="submit" name="submit" class="btn btn-outline-info py-0 mt-2 float-right d-block" id="btn-new" value="送信">
       </div>
     </form>
   </div>

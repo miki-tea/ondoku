@@ -63,7 +63,9 @@ class GroupController extends Controller
 
     public function search(Request $request) {
         $keyword = $request->name;
-
+        $validatedData = $request->validate([
+            'name' => 'required|max:100',
+        ]);
         if(!empty($keyword)){
             $query = Group::query();
             $countTarget = $query->where('name','like','%' .($keyword). '%');

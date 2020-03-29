@@ -14,15 +14,16 @@ class CommentsTableSeeder extends Seeder
     public function run()
     {
         //
-        foreach(range(1,5) as $num) {
-            DB::table('comments')->insert([
-                'user_id' => 1,
-                'agenda_id' => 1,
-                'body' => "コメント {$num}",
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
-        }
+        // foreach(range(1,5) as $num) {
+        //     DB::table('comments')->insert([
+        //         'user_id' => 1,
+        //         'agenda_id' => 1,
+        //         'body' => "コメント {$num}",
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now(),
+        //     ]);
+        // }
+        factory(App\Comment::class,100)->create();
 
     }
 }

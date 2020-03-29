@@ -15,7 +15,7 @@ class AgendaController extends Controller
         //選択された議題の情報を$idを元に取得する
         $selected_agenda = Agenda::find($id);
         //選択されたグループの全ての議題を取得する
-        $comments = Comment::where('agenda_id',$id)->paginate(10);
+        $comments = Comment::where('agenda_id',$id)->paginate(5);
 
         //パンくずリスト用に読書会の名前取得
         $group = Agenda::find(1)->group->name;

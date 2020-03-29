@@ -9,7 +9,7 @@
     <li class="breadcrumb-item active" aria-current="page">読書会「{{ $group->name }}」</li>
   </ol>
 </nav>
-  <div class="container mt-4">
+  <div class="container my-4">
       <div class="col-md-9 mx-auto">
         <div class="card mb-4 bg-info">
           <div class="card-header">
@@ -37,8 +37,10 @@
               @forelse($agendas as $agenda)
               <li class="list-group-item">
                 <a href="{{ route('agenda.index', ['id' => $agenda->id]) }}" class="">{{ $agenda->title }}</a>
-                <small class="float-right text-muted">投稿者ID:{{ $agenda->user_id}}</small>
-                <small class="float-right text-muted mr-2">作成日:{{ $agenda->created_at->format('Y年m月d日')}}</small>
+                <div class="pt-1">
+                  <small class="float-right text-muted">投稿者ID:{{ $agenda->user_id}}</small>
+                  <small class="float-right text-muted mr-2">作成日:{{ $agenda->created_at->format('Y年m月d日')}}</small>
+                </div>
               </li>
               @empty
               <li class="list-group-item">
@@ -65,7 +67,7 @@
             <textarea name="body" id="body" cols="30" rows="5" class="form-control"> {{ old('body')}}</textarea>
             </div>
             <div>
-              <input type="submit" class="btn btn-outline-info py-0 mt-2 float-right d-block" value="作成">
+              <input type="submit" class="btn btn-outline-info py-0 mt-2 float-right d-block" id="btn-new" value="作成">
             </div>
           </form>
 

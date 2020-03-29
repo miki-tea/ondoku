@@ -9,6 +9,7 @@
   <div class="col-md-9 mx-auto my-4">
     <h1 class="h3 font-weight-bold my-4 text-info">読書会</h1>
 
+    <small class="text-danger">{{ $errors->first('name') }}</small>
         <div class="row d-flex align-items-center">
           <div class="col-lg-8">
               <form action="{{ url('/groups/search')}}" method="post"class="input-group m-0 mx-auto">
@@ -21,8 +22,8 @@
               </form>
           </div>
           <div class="col-lg-4 mt-2 mt-lg-0">
-            <button class="w-100 btn btn-outline-info py-2">
-              <a href="{{ route('group.new')}}" class="d-block text-info" id="btn-new">&#043;&nbsp;New&nbsp;読書会</a>
+            <button class="w-100 btn btn-outline-info p-0">
+              <a href="{{ route('group.new')}}" class="d-block text-info py-2" id="btn-new">&#043;&nbsp;New&nbsp;読書会</a>
             </button> 
           </div>
         </div>

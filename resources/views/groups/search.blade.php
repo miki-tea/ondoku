@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','検索結果')
 @section('content')
-  <div class="col-md-7 mx-auto">
+  <div class="col-md-7 mx-auto my-4">
     @if(!empty($message))
       <div class="alert alert-info mt-4" role="alert">{{ $message}}</div>
     @endif

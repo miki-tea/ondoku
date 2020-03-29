@@ -36,6 +36,9 @@
               </div>
               @endforelse
             </div>
+          <div class="d-flex justify-content-center align-items-center p-2">
+            {{$comments->links()}}
+          </div>
           {{-- ↓↓↓↓フォーム部品↓↓↓↓ --}}
           <div class="border-top border-info pt-3">
             <form action="" method="POST">
@@ -45,7 +48,7 @@
                 <textarea name="body" id="body" cols="30" rows="5" class="form-control">{{ old('body') }}</textarea>
               </div>
               <div>
-                <input type="submit" name="submit" class="btn btn-outline-info py-0 mt-4 float-right d-block">
+                <input type="submit" name="submit" class="btn btn-outline-info py-0 mt-4 float-right d-block" id="btn-new">
               </div>
             </form>
           </div>
