@@ -14,10 +14,7 @@ class GroupController extends Controller
     public function index() {
 
         //読書会グループの全ての情報を取得する
-        // $groups = Group::all();
-        $groups = DB::table('groups')->paginate(10);
-
-
+        $groups = Group::latest()->paginate(10);
         //　前読書会グループの情報をビューに渡して返す
         return view('groups/index', [
             'groups' => $groups,
@@ -58,7 +55,7 @@ class GroupController extends Controller
         $group->save();
         
         //読書会一覧ページに戻る。
-        return  redirect ('/groups');
+        return  redirect ('/');
     }
 
     public function search(Request $request) {
