@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Group extends Model
 {
@@ -12,4 +13,7 @@ class Group extends Model
     public function agendas(){
         return $this->hasMany('App\Agenda');
     }
+
+    use Sortable;
+    public $sortable = ['updated_at'];
 }

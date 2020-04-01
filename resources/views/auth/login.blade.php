@@ -15,7 +15,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Eメール') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="js-email email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="js-pass password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -58,9 +58,12 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="float-right btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('パスワードを忘れた方はこちら') }}
                                     </a>
+                                    {{-- <div id="js-easyLoginBtn" class="float-right btn btn-link">
+                                        {{ __('会員登録せずに試したい方はこちら') }}
+                                    </div> --}}
                                 @endif
                             </div>
                         </div>
@@ -70,4 +73,16 @@
         </div>
     </div>
 </div>
+{{-- モーダル内容 --}}
+<div class="modal js-modal">
+  <div class="modal__bg js-modalClose"></div>
+  <div class="modal__content">
+    <h1 class="modal__title">お試しログインについて</h1>
+    <p>
+      お試しログインは、このアプリを試用するためのアカウントです。どなたでもログイン・閲覧できるため、個人情報に関わるもの、公序良俗に反するもの等はメモに登録しないで下さい。
+    </p>
+    <button class="js-modalClose btn__accept" href="">OK</button>
+  </div>
+</div>
+<script src="{{ asset('/js/myapp.js') }}"></script>
 @endsection

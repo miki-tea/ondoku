@@ -79,6 +79,7 @@
         <main class="flex-shrink-0">
             @yield('content')
         </main>
+        
     </div>
 </body>
 </html>

@@ -35,5 +35,8 @@ Route::group(['middleware' => 'auth'],function(){
   // 議題個別ページ表示
   Route::get('/groups/agenda/{id}/show', 'AgendaController@show')->name('agenda.index');
   Route::post('/groups/agenda/{id}/show', 'CommentsController@store');
+
+  //マイ投稿履歴ページへ移動
+  
 });
 Auth::routes();
