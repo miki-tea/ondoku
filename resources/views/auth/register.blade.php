@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','新規登録')
 @section('content')
 <div class="container mx-auto my-4">
     <div class="row justify-content-center">

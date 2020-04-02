@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','パスワード再発行')
 @section('content')
 <div class="col-md-9 mx-auto my-4">
     <div class="row justify-content-center">
