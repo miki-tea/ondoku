@@ -20,16 +20,20 @@ class CommentsController extends Controller
         $post->agenda_id = $id;
         $post->body = $request->body;
         $post->save();
-        
-        //選択中のグループの情報を取得する
-        $selected_agenda = Agenda::find($id);
+    
 
+        //選択された議題の情報を$idを元に取得する
+        $selected_agenda = Agenda::find($id);
         //選択されたグループの全ての議題を取得する
-        $comments = Comment::where('agenda_id', $selected_agenda->id)->get();
+        $comments = Comment::where('agenda_id',$id)->paginate(5);
+
+        //パンくずリスト用に読書会の名前取得
+        $group = Agenda::find($id)->group->name;
 
         return view('groups/agenda', [
             'agenda' => $selected_agenda,
             'comments' => $comments,
+            'group' => $group,
             ]);
     }
 

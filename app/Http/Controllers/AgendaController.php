@@ -18,7 +18,7 @@ class AgendaController extends Controller
         $comments = Comment::where('agenda_id',$id)->paginate(5);
 
         //パンくずリスト用に読書会の名前取得
-        $group = Agenda::find(1)->group->name;
+        $group = Agenda::find($id)->group->name;
 
         //議題に紐づくコメントの取得
         return view('groups/agenda', [
