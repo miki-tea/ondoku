@@ -33,11 +33,6 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    {{-- <ul class="navbar-nav mr-auto">
-
-                    </ul> --}}
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -51,12 +46,6 @@
                                 </li>
                             @endif
                         @else
-                            {{-- <li class="nav-item dropdown"> --}}
-                                {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a> --}}
-
-                                {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
                                 <li class="nav-item">
                                     <a class="nav-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -67,6 +56,11 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-item" href="{{ route('mypost',['id' => $]) }}">
+                                        {{ __('投稿管理') }}
+                                    </a>
                                 </li>
                                 {{-- </div> --}}
                             {{-- </li> --}}

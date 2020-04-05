@@ -16,4 +16,9 @@ class Group extends Model
 
     use Sortable;
     public $sortable = ['updated_at'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

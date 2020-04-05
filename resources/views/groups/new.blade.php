@@ -28,4 +28,5 @@
   <div class="col-sm-9 mx-auto my-4 p-0">
     <a href="{{ url('/') }}" class="mt-2">Back</a>
   </div>
+  
 @endsection

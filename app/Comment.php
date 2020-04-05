@@ -12,4 +12,10 @@ class Comment extends Model
     public function post() {
         return $this->belongsTo('App\Agenda');
     }
+
+    //リレーション
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

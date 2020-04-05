@@ -47,4 +47,16 @@ class User extends Authenticatable
      {
          Mail::to($this)->send(new ResetPassword($token));
      }
+
+     //リレーション設定
+     public function groups(){
+        return $this->hasMany('App\Group');
+     }
+
+     public function agendas(){
+        return $this->hasMany('App\Agenda');
+     }
+     public function comments(){
+        return $this->hasMany('App\Comment');
+     }
 }
