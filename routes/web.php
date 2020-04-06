@@ -37,6 +37,6 @@ Route::group(['middleware' => 'auth'],function(){
   Route::post('/groups/agenda/{id}/show', 'CommentsController@store');
 
   //マイ投稿履歴ページへ移動
-  Route::get('/post/{id}', 'PostController@show')->name('mypost');
+  Route::resource('/users','UserController');
 });
 Auth::routes();
